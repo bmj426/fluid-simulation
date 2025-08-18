@@ -18,9 +18,9 @@ void disable_raw_mode(void* orig) {
 	
 
 int main(void) {
-	struct termios* orig;
-	tcgetattr(STDIN_FILENO, orig);
-	enable_raw_mode((void*) orig);
+	struct termios orig;
+	tcgetattr(STDIN_FILENO, &orig);
+	enable_raw_mode((void*) &orig);
 
 	printf("\x1b[?25l\x1b[2J");
 
@@ -34,9 +34,9 @@ int main(void) {
 
 	while(1) {
 		x += vx * dt;
-		y += vy + dt;
+		y += vy * dt;
 
-		vy += 2.0f * dt;
+		vy += 20.0f * dt;
 
 		if (x < 2) 	{ x = 2; 	vx = -vx * damping; }
 		if (x > W-1){ x = W-1;	vx = -vx * damping; }
@@ -60,8 +60,8 @@ int main(void) {
 		usleep((int)(dt * 1e6));
 	}
 
-	disable_raw_mode((void *)orig);
+	disable_raw_mode((void *) &orig);
 
-	printf("\xb[?25h");
+	printf("\x1b[?25h");
 	return 0;
 }
