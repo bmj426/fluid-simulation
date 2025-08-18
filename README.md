@@ -18,7 +18,7 @@
 
 ```bash
 make
-./particle_sim
+./particle_sim_cli
 ```
 
 종료는 `Ctrl + C` (강제 종료)로 합니다.
