@@ -1,7 +1,38 @@
 # Particle Sim (CLI, C)
 
-터미널에서 **문자 하나(o)** 를 입자로 사용해 통통 튀는 애니메이션을 그리는 초간단 데모입니다.
-`termios`로 **Raw 모드**(ICANON/ECHO off, 논블로킹 설정)를 적용하고, ANSI 이스케이프 시퀀스로 화면을 갱신합니다.
+C 언어로 fluid simulation 만들어보는 것을 목표로 합니다.
+cli를 통한 렌더와 vulkan을 이용한 렌더를 통해 하나의 core로 두가지 환경에서 돌아가는 시뮬레이션을 구현하는 것이 목표입니다.
+
+---
+
+## 예상 폴더 구조
+```
+fluid/
+  CMakeLists.txt
+  include/
+    fluid.h            # Solver 공개 API (C)
+    fluid_config.h     # 빌드/파라미터 공통 정의(옵션)
+  src/
+    fluid_cpu.c        # Solver 구현 (Stable Fluids: add/diffuse/advect/project)
+    fluid_utils.c      # set_bnd, lin_solve 등 공통 유틸
+  render/
+    cli/
+      render_cli.c     # ASCII 렌더러
+      ansi.h/ansi.c    # ANSI 제어(커서, 색, clear), termios 래퍼
+    vulkan/
+      render_vk.cpp    # Vulkan 렌더러(텍스처 업로드/풀스크린 패스)
+      vk_app.cpp       # Instance/Device/Swapchain 초기화
+      vk_shaders/
+        fullscreen.vert
+        density.frag
+  app/
+    main_cli.c         # CLI 실행 엔트리 (solver + cli renderer)
+    main_vk.cpp        # Vulkan 실행 엔트리 (solver + vk renderer)
+  tests/
+    solver_tests.c     # 단위테스트(확산/발산/경계)
+  assets/
+    palettes/..        # 컬러 램프, 셰이더 리소스 등
+```
 
 ---
 
