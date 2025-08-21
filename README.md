@@ -9,7 +9,7 @@
 
 * ANSI 이스케이프 코드를 이용해 화면 제어 (`ansi.c`)
 * 간단한 CLI 테두리 및 화면 출력 (`render_cli.c`)
-* 프레임레이트 모드 관리 (`frame_rate.c`):
+* 프레임레이트 모드 관리 (`frame_rate.c`)
 
   * **60 FPS 고정**
   * **120 FPS 고정**
