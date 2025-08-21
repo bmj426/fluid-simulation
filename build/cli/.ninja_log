@@ -1,0 +1,12 @@
+# ninja log v5
+1	17	1755757145964371888	render/cli/CMakeFiles/render_cli.dir/frame_rate.c.o	a013eabe0b6adc80
+26	72	1755757146016371878	app/cli/fluid_cli	25b5d2f4a5474739
+17	25	1755757145972371887	render/cli/librender_cli.a	799d9e4a1312a512
+1	17	1755756587476501651	render/cli/CMakeFiles/render_cli.dir/ansi.c.o	faaecde51670347e
+1	14	1755756587472501652	render/cli/CMakeFiles/render_cli.dir/render_cli.c.o	729dc423f82426c7
+1	9	1755744992183209997	src/CMakeFiles/fluid_core.dir/fluid_utils.c.o	5011bfa164bccd68
+9	18	1755744992191209997	src/libfluid_core.a	9da6f6d1d282b7d7
+1	14	1755757145960371889	app/cli/CMakeFiles/fluid_cli.dir/main_cli.c.o	67d32c2f78601ca4
+1	9	1755744992183209997	src/CMakeFiles/fluid_core.dir/fluid_cpu.c.o	33b9e90133b1856a
+1	15	1755757245132349054	app/cli/CMakeFiles/fluid_cli.dir/main_cli.c.o	67d32c2f78601ca4
+15	61	1755757245180349043	app/cli/fluid_cli	25b5d2f4a5474739

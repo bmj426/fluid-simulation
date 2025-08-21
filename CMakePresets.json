@@ -1,0 +1,31 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": { "major": 3, "minor": 20 },
+  "configurePresets": [
+    {
+      "name": "dev-cli",
+      "generator": "Ninja",
+      "binaryDir": "build/cli",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_CLI": "ON",
+        "BUILD_VULKAN": "OFF"
+      }
+    },
+    {
+      "name": "dev-vk",
+      "generator": "Ninja",
+      "binaryDir": "build/vk",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_CLI": "OFF",
+        "BUILD_VULKAN": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "cli", "configurePreset": "dev-cli" },
+    { "name": "vk", "configurePreset": "dev-vk" }
+  ]
+}
+
